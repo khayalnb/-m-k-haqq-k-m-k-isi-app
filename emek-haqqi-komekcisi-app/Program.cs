@@ -6,8 +6,6 @@ namespace emek_haqqi_komekcisi_app
     {
         static void Main(string[] args)
         {
-            int ab= args.Length;
-            Console.WriteLine(ab);
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             WarningMessage warningMessage = new WarningMessage();
             Console.WriteLine("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*Emek haqqının hesablanması*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
@@ -30,13 +28,13 @@ namespace emek_haqqi_komekcisi_app
             // end=========================================================================================================================================
 
             // Əmək haqiinin duzgun daxil ediblib edilmemesini  yoxlanisi
-            Console.WriteLine("Əmək haqqını duzgun daxil etmisiz ? *Bəli(1) / *Xeyr(2)");
+            Console.WriteLine(warningMessage.confirmationMessage);
             Console.Write("Daxit et: ");
             string employeeSalaryConfidenceResponse = Console.ReadLine();
             int employeeSalaryResponseNumber;
             while (!int.TryParse(employeeSalaryConfidenceResponse,out employeeSalaryResponseNumber))
             {
-                Console.WriteLine("Zəhmət olmasa duzgun dəyər daxil edin!");
+                Console.WriteLine(warningMessage.wrongValueMessage);
                 Console.WriteLine("*Bəli(1) / *Xeyr(2)");
                 employeeSalaryConfidenceResponse = Console.ReadLine();
             }
@@ -45,7 +43,7 @@ namespace emek_haqqi_komekcisi_app
                 Console.Write("Əmək haqqını daxil edin:");
                 while (!int.TryParse(employeeSalary, out salary))
                 {
-                    Console.WriteLine("Zəhmət olmasa əmək haqqını düzgün daxil edin!");
+                    Console.WriteLine(warningMessage.wrongSalaryMessage);
                     Console.Write("Əmək haqqını daxil edin :");
                     employeeSalary = Console.ReadLine();
                 }
@@ -60,32 +58,32 @@ namespace emek_haqqi_komekcisi_app
             string martialStatus = Console.ReadLine();
             while (!int.TryParse(martialStatus, out maritalStatusResponse))
             {
-                Console.WriteLine("Zəhmət olmasa ailə vəziyyəti məlumatinizi duzgun daxil edin");
+                Console.WriteLine(warningMessage.wrongMaritalStatusMessage);
                 martialStatus = Console.ReadLine();
             }
-            Console.WriteLine("Qeyd etdiyniz cavab duzdur ? *Bəli(1) / *Xeyr(2)");
+            Console.WriteLine(warningMessage.confirmationMessage);
             string martialStatusConfidenceResponse = Console.ReadLine();///Aile veziyyeti tesdiq
             int martialStatusConfidenceResponseNumber;
             while (!int.TryParse(martialStatusConfidenceResponse,out martialStatusConfidenceResponseNumber))
             {
-                Console.WriteLine("Daxil olunan cavab yalnışdır !");
+                Console.WriteLine(warningMessage.wrongValueMessage);
                 martialStatusConfidenceResponse = Console.ReadLine();
             }
             switch (martialStatusConfidenceResponseNumber)
             {
                 case 1:
-                    Console.WriteLine("Proses uğurla davam edir");
+                    Console.WriteLine(warningMessage.successfulMessage);
                     break;
                 case 2:
                     Console.WriteLine("*Bəli(1) / *Xeyr(2)");
                     martialStatus = Console.ReadLine();
                     while (!int.TryParse(martialStatus, out maritalStatusResponse))
                     {
-                        Console.WriteLine("Zəhmət olmasa ailə vəziyyəti məlumatinizi duzgun daxil edin");
+                        Console.WriteLine(warningMessage.wrongMaritalStatusMessage);
                     }
                     break;
                 default:
-                    Console.WriteLine("Daxil olunan cavab yalnışdır ! ");
+                    Console.WriteLine(warningMessage.wrongValueMessage);
                     break;
             }
            
@@ -108,26 +106,26 @@ namespace emek_haqqi_komekcisi_app
                     {
                         payment += 30;
                         salary += 30;
-                        Console.WriteLine($"Uşaq sayına görə {payment} AZN ödəniş edildi");
+                        warningMessage.childPaymentMessage(payment);
                     }
                     if (childCount == 2)
                     {
                         payment += 30 + 25;
                         salary = 30 + 25;
-                        Console.WriteLine($"Uşaq sayına görə {payment} AZN ödəniş edildi");
+                        warningMessage.childPaymentMessage(payment);
 
                     }
                     if (childCount == 3)
                     {
                         payment = 30 + 25 + 20;
                         salary = 30 + 25 + 20;
-                        Console.WriteLine($"Uşaq sayına görə {payment} AZN ödəniş edildi");
+                        warningMessage.childPaymentMessage(payment);
                     }
                     if (childCount > 3)
                     {
                         payment= 30 + 25 + 20 + ((childCount - 3) * 15);
                         salary += 30 + 25 + 20 + ((childCount - 3) * 15);
-                        Console.WriteLine($"Uşaq sayına görə {payment} AZN ödəniş edildi");
+                        warningMessage.childPaymentMessage(payment);g
                     }
                 }
             }
