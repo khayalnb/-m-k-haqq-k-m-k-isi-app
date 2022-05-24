@@ -1,0 +1,16 @@
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.exe
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.deps.json
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.runtimeconfig.json
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.runtimeconfig.dev.json
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.dll
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\ref\emek-haqqi-komekcisi-app.dll
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\emek-haqqi-komekcisi-app.pdb
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.dll
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\ref\emek-haqqi-komekcisi-app.dll
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.pdb
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.genruntimeconfig.cache
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.csproj.AssemblyReference.cache
