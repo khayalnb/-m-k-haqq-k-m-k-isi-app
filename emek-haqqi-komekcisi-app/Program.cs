@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleTables;
 
 namespace emek_haqqi_komekcisi_app
 {
@@ -10,59 +11,73 @@ namespace emek_haqqi_komekcisi_app
             WarningMessage warningMessage = new WarningMessage();
             Console.WriteLine("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*Emek haqqının hesablanması*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
             Console.WriteLine();
-            // Əmək haqqini daxil edilməsi bolməsi :
-            Console.Write("Əmək haqqını daxil edin : ");
-            int salary; // Əmək haqqi
+            Console.Write(warningMessage.enterSalaryMessage);
+            int salary; 
             string employeeSalary = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(employeeSalary))
-            {
-                Console.WriteLine(warningMessage.emptyValueMessage);
-            }
-            //salary= EmployeeSalary(employeeSalary);
             while (!int.TryParse(employeeSalary, out salary))
             {
+                if (string.IsNullOrWhiteSpace(employeeSalary))
+                {
+                    Console.WriteLine(warningMessage.emptyValueMessage);
+                }
+                if (!string.IsNullOrWhiteSpace(employeeSalary))
+                {
+                    if (employeeSalary.GetType() == typeof(string))
+                    {
+                        Console.WriteLine(warningMessage.wrongLetterMessage);
+                    }
+                }
+               
                 Console.WriteLine(warningMessage.wrongSalaryMessage);
-                Console.Write("Əmək haqqını daxil edin :");
+                Console.Write(warningMessage.enterSalaryMessage);
                 employeeSalary = Console.ReadLine();
             }
-            // end=========================================================================================================================================
-
-            // Əmək haqiinin duzgun daxil ediblib edilmemesini  yoxlanisi
-            Console.WriteLine(warningMessage.confirmationMessage);
-            Console.Write("Daxit et: ");
+            Console.WriteLine(warningMessage.confirmationSalaryMessage);
+            Console.Write(warningMessage.enterMessage);
             string employeeSalaryConfidenceResponse = Console.ReadLine();
             int employeeSalaryResponseNumber;
             while (!int.TryParse(employeeSalaryConfidenceResponse,out employeeSalaryResponseNumber))
             {
+                if (string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
+                {
+                    Console.WriteLine(warningMessage.emptyValueMessage);
+                }
+                if (!string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
+                {
+                    if (employeeSalaryConfidenceResponse.GetType() == typeof(string))
+                    {
+                        Console.WriteLine(warningMessage.wrongLetterMessage);
+                    }
+                }
                 Console.WriteLine(warningMessage.wrongValueMessage);
-                Console.WriteLine("*Bəli(1) / *Xeyr(2)");
+                Console.WriteLine("Bəli(1) / Xeyr(2)");
                 employeeSalaryConfidenceResponse = Console.ReadLine();
             }
             if (employeeSalaryResponseNumber!=1)
             {
-                Console.Write("Əmək haqqını daxil edin:");
+                Console.Write(warningMessage.enterSalaryMessage);
                 while (!int.TryParse(employeeSalary, out salary))
                 {
                     Console.WriteLine(warningMessage.wrongSalaryMessage);
-                    Console.Write("Əmək haqqını daxil edin :");
+                    Console.Write(warningMessage.enterSalaryMessage);
                     employeeSalary = Console.ReadLine();
                 }
             }
-            //end============================================================================================================================================
-
             Console.WriteLine();
-            Console.WriteLine("Zəhmət olmasa ailə vəziyyəti ilə bağlı aşağıdakı seçimlərdən özünüzə uğun halı daxil edin :");
-            Console.WriteLine("Evli (1) * Subay (2) * Dul (3)");
-            Console.WriteLine("Daxil et: ");
-            int maritalStatusResponse;//Aile veziyyeti
+            Console.WriteLine(warningMessage.enterMartialStatusMessage);
+            Console.WriteLine("Evli (1) / Subay (2) / Dul (3)");
+            Console.Write(warningMessage.enterMessage);
+            int maritalStatusResponse;
             string martialStatus = Console.ReadLine();
             while (!int.TryParse(martialStatus, out maritalStatusResponse))
             {
                 Console.WriteLine(warningMessage.wrongMaritalStatusMessage);
                 martialStatus = Console.ReadLine();
             }
-            Console.WriteLine(warningMessage.confirmationMessage);
-            string martialStatusConfidenceResponse = Console.ReadLine();///Aile veziyyeti tesdiq
+            Console.WriteLine();
+            Console.WriteLine(warningMessage.confirmationMartialStatusMessage);
+            Console.Write(warningMessage.enterMessage);
+            string martialStatusConfidenceResponse = Console.ReadLine();
             int martialStatusConfidenceResponseNumber;
             while (!int.TryParse(martialStatusConfidenceResponse,out martialStatusConfidenceResponseNumber))
             {
@@ -75,7 +90,7 @@ namespace emek_haqqi_komekcisi_app
                     Console.WriteLine(warningMessage.successfulMessage);
                     break;
                 case 2:
-                    Console.WriteLine("*Bəli(1) / *Xeyr(2)");
+                    Console.WriteLine("Bəli(1) / Xeyr(2)");
                     martialStatus = Console.ReadLine();
                     while (!int.TryParse(martialStatus, out maritalStatusResponse))
                     {
@@ -86,24 +101,38 @@ namespace emek_haqqi_komekcisi_app
                     Console.WriteLine(warningMessage.wrongValueMessage);
                     break;
             }
-           
-           
+            Console.WriteLine();
             int payment = 0;
+            int childCount=0;
+            int marriedPayment = 50;
             if (maritalStatusResponse==1 || maritalStatusResponse==3)
             {
                 if (maritalStatusResponse==1)
                 {
-                    salary += 50;
+                    salary += marriedPayment;
                 }
-                Console.WriteLine("Uşağınız varmı ?");
-                string haveChildResponse = Console.ReadLine();//usaq sorgusu
-                if (haveChildResponse=="he")
+                Console.WriteLine(warningMessage.confirmationDoHaveChildMessage);
+                int childResponseConfiderinceNumber;
+                Console.Write(warningMessage.enterMessage);
+                string haveChildResponse = Console.ReadLine();
+                while (!int.TryParse(haveChildResponse,out childResponseConfiderinceNumber))
                 {
-                    Console.Write("Zehmet olmasa uşaqların sayın qeyd edin :");
-                    int childCount = Convert.ToInt32(Console.ReadLine());
-                  //usaq odenisi
-                    if (childCount == 1)
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    haveChildResponse = Console.ReadLine();
+                }
+                if (childResponseConfiderinceNumber == 1)
+                {
+                    Console.WriteLine();
+                    Console.Write(warningMessage.enterChildCountMessage);
+                    
+                    string childCountresponse = Console.ReadLine();
+                    while (!int.TryParse(childCountresponse,out childCount))
                     {
+                        Console.WriteLine(warningMessage.wrongChildCountMessage);
+                        childCountresponse = Console.ReadLine();
+                    }
+                    if (childCount == 1)
+                    { 
                         payment += 30;
                         salary += 30;
                         warningMessage.childPaymentMessage(payment);
@@ -113,7 +142,6 @@ namespace emek_haqqi_komekcisi_app
                         payment += 30 + 25;
                         salary = 30 + 25;
                         warningMessage.childPaymentMessage(payment);
-
                     }
                     if (childCount == 3)
                     {
@@ -125,90 +153,96 @@ namespace emek_haqqi_komekcisi_app
                     {
                         payment= 30 + 25 + 20 + ((childCount - 3) * 15);
                         salary += 30 + 25 + 20 + ((childCount - 3) * 15);
-                        warningMessage.childPaymentMessage(payment);g
+                        warningMessage.childPaymentMessage(payment);
                     }
                 }
             }
-            Console.WriteLine("Əlilik statusunuz var ?");
-            string disabilityStatus = Console.ReadLine();
-            double taxInterest=0;//gelir vergisinin meblegi
-            double fixSalary=0; // xalis emek haqqi
-          
-            if (disabilityStatus=="beli")
+            Console.WriteLine();
+            Console.WriteLine(warningMessage.disabilityMessage);
+            int disabilityStatusNumber;
+            
+            double taxInterest = 0;
+            double fixSalary = 0;
+            float interest = 0;
+            bool isContunie = true;
+            do
             {
-                float interest = 0;
-                const float divisor = 2f;
-                float a = 100;
-                if (salary <= 1000)
+                Console.WriteLine(warningMessage.enterMessage);
+                string disabilityStatus = Console.ReadLine();
+                while (!int.TryParse(disabilityStatus, out disabilityStatusNumber))
                 {
-                    interest = 15;
-                    taxInterest =(salary / a) * (interest / divisor);
-                    fixSalary = salary - taxInterest;
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    disabilityStatus = Console.ReadLine();
                 }
-                if (salary > 1000 && salary <= 2000)
+
+                if (disabilityStatusNumber == 1)
                 {
-                    interest = 20;
-                    taxInterest = Convert.ToInt32((salary / 100) * (interest / divisor));
-                    fixSalary = salary - taxInterest;
+                    isContunie = true;
+                    const float divisor = 2f;
+                    float a = 100;
+                    if (salary <= 1000)
+                    {
+                        interest = 15 / divisor;
+                        taxInterest = (salary / a) * interest;
+                        fixSalary = Math.Floor(salary - taxInterest);
+                    }
+                    if (salary > 1000 && salary <= 2000)
+                    {
+                        interest = 20 / divisor;
+                        taxInterest = (salary / 100) * interest;
+                        fixSalary = Math.Floor(salary - taxInterest);
+                    }
+                    if (salary > 2000 && salary <= 3000)
+                    {
+                        interest = 25 / divisor;
+                        taxInterest = (salary / 100) * interest;
+                        fixSalary = Math.Floor(salary - taxInterest);
+                    }
+                    if (salary > 3000)
+                    {
+                        interest = 30 / divisor;
+                        taxInterest = ((salary / 100) * interest);
+                        fixSalary = Math.Round(salary - taxInterest);
+                    }
                 }
-                if (salary > 2000 && salary <= 3000)
+                else if (disabilityStatusNumber == 2)
                 {
-                    interest = 25;
-                    taxInterest = Convert.ToInt32((salary / 100) * (interest / divisor));
-                    fixSalary = salary - taxInterest;
+                    isContunie = true;
+                    if (salary <= 1000)
+                    {
+
+                        taxInterest = (salary / 100) * 15;
+                        fixSalary = salary - taxInterest;
+                    }
+                    if (salary > 1000 && salary <= 2000)
+                    {
+                        taxInterest = (salary / 100) * 20;
+                        fixSalary = salary - taxInterest;
+                    }
+                    if (salary > 2000 && salary <= 3000)
+                    {
+                        taxInterest = (salary / 100) * 25;
+                        fixSalary = salary - taxInterest;
+                    }
+                    if (salary > 3000)
+                    {
+                        taxInterest = (salary / 100) * 30;
+                        fixSalary = salary - taxInterest;
+                    }
                 }
-                if (salary > 3000)
+                else if (disabilityStatusNumber != 1 || disabilityStatusNumber != 2)
                 {
-                    interest = 30;
-                    taxInterest = Convert.ToInt32((salary / 100) * (interest / divisor));
-                    fixSalary = salary - taxInterest;
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    isContunie = false;
                 }
-          
-            }
-          
-            if(disabilityStatus=="xeyr")
-            {
-                if (salary<=1000)
-                {
+            } while (!isContunie);
+           
 
-                    taxInterest=(salary / 100) * 15;
-                    fixSalary = salary - taxInterest;
-                }
-                if (salary>1000&&salary<=2000)
-                {
-                    taxInterest = (salary / 100) * 20;
-                    fixSalary = salary - taxInterest;
-                }
-                if (salary>2000&&salary<=3000)
-                {
-                    taxInterest = (salary / 100) * 25;
-                    fixSalary = salary - taxInterest;
-                }
-                if (salary>3000)
-                {
-                    taxInterest = (salary / 100) * 30;
-                    fixSalary = salary - taxInterest;
-                }
-            }
-
-
-
-            //➢ ailə müavinəti - 50 azn 
-            //➢ uşaq pulu  - sayina gore
-            Console.WriteLine(payment);
-            //➢ gəlir vergisi dərəcəsi - umumi gelire gore hesablam faizin cixilmasi
-            //➢ gəlir vergisinin məbləği - faizde tutulub
-            Console.WriteLine(taxInterest);
-            //➢ ümumi əmək haqqı - umumi emek haqqi ?
-            Console.WriteLine(salary);
-            //➢ xalis əmək haqqı - xalis emek haqqi da tutulub.
-            Console.WriteLine(fixSalary);
-
-            //paymentTerminal(fixSalary);
-
-
-
-
+            var table = new ConsoleTable("Ailə müavinatı", "Uşaq pulu", "Gəlir vergisi dərəcəsi", "Gəlir vergisi məbləği", "Ümumi əmək haqqı", "Xalis əmək haqqı");
+            table.AddRow(marriedPayment, payment, interest + " %", taxInterest, salary, fixSalary);
+            table.Write();
+            Console.WriteLine("Sizin əmək haqqınız bu pul vahidləri ilə ödəniləcək :");
+            paymentTerminal(fixSalary);
         }
         public static int TrueAndFalseResponse(string value)
         {
@@ -221,41 +255,22 @@ namespace emek_haqqi_komekcisi_app
             }
             return result;
         }
-        public static void paymentTerminal(int salary)
+        public static void paymentTerminal(double salary)
         {
             int[] monetaryUnits = { 200, 100, 50, 20, 10, 5, 1 };
-            int twoHundredBanknoteCount = 0;
-            int hundredBanknoteCount = 0;
-            int fiftyBanknoteCount = 0;
-            int twentyBanknoteCount = 0;
-            int tenBanknoteCount = 0;
-            int fiveBanknoteCount = 0;
-            int oneBanknoteCount = 0;
-
+           
             for (int i = 0; i < monetaryUnits.Length; i++)
             {
-                twoHundredBanknoteCount = salary / monetaryUnits[0];
-                int result1 = salary - twoHundredBanknoteCount * monetaryUnits[0];
-                hundredBanknoteCount = result1 / monetaryUnits[1];
-                int result2 = result1 - hundredBanknoteCount * monetaryUnits[1];
-                fiftyBanknoteCount = result2 / monetaryUnits[2];
-                int result3 = result2 - fiftyBanknoteCount * monetaryUnits[2];
-                twentyBanknoteCount = result3 / monetaryUnits[3];
-                int result4 = result3 - twentyBanknoteCount * monetaryUnits[3];
-                tenBanknoteCount = result4 / monetaryUnits[4];
-                int result5 = result4 - tenBanknoteCount * monetaryUnits[4];
-                fiveBanknoteCount = result5 / monetaryUnits[5];
-                int result6 = result5 - fiveBanknoteCount * monetaryUnits[5];
-                oneBanknoteCount = result6 / monetaryUnits[6];
+                int moneyUnitCount =Convert.ToInt32( Math.Floor(salary / monetaryUnits[i]));
+                if (moneyUnitCount != 0)
+                {
+                    var moneyTable = new ConsoleTable(monetaryUnits[i].ToString()+" AZN ");
+                    moneyTable.AddRow(moneyUnitCount);
+                    Console.WriteLine(moneyTable);
+                    //Console.WriteLine("{0} eded {1} manat çıxarıldı", moneyUnitCount, monetaryUnits[i]);
+                }
+                salary = salary - (moneyUnitCount * monetaryUnits[i]);
             }
-
-            Console.WriteLine("{0} eded 200 manat", twoHundredBanknoteCount);
-            Console.WriteLine("{0} eded 100 manat", hundredBanknoteCount);
-            Console.WriteLine("{0} eded 50 manat", fiftyBanknoteCount);
-            Console.WriteLine("{0} eded 20 manat", twentyBanknoteCount);
-            Console.WriteLine("{0} eded 10 manat", tenBanknoteCount);
-            Console.WriteLine("{0} eded 5 manat", fiveBanknoteCount);
-            Console.WriteLine("{0} eded 1 manat", oneBanknoteCount);
         }
     }
 }

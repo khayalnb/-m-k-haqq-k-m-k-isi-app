@@ -14,3 +14,5 @@ C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj
 C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.pdb
 C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\bin\Debug\net5.0\ConsoleTables.dll
+C:\Users\ASUS\source\repos\emek-haqqi-komekcisi-app\emek-haqqi-komekcisi-app\obj\Debug\net5.0\emek-haqqi-komekcisi-app.csproj.CopyComplete

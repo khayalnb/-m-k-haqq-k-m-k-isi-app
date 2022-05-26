@@ -6,4 +6,8 @@
     <RootNamespace>emek_haqqi_komekcisi_app</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ConsoleTables" Version="2.4.2" />
+  </ItemGroup>
+
 </Project>
