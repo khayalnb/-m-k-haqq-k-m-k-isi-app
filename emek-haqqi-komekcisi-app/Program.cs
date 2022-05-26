@@ -33,57 +33,124 @@ namespace emek_haqqi_komekcisi_app
                 employeeSalary = Console.ReadLine();
             }
             Console.WriteLine(warningMessage.confirmationSalaryMessage);
-            Console.Write(warningMessage.enterMessage);
-            string employeeSalaryConfidenceResponse = Console.ReadLine();
             int employeeSalaryResponseNumber;
-            while (!int.TryParse(employeeSalaryConfidenceResponse,out employeeSalaryResponseNumber))
+            bool isSalaryResponseContiune = false;
+            do
             {
-                if (string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
+                Console.Write(warningMessage.enterMessage);
+                string employeeSalaryConfidenceResponse = Console.ReadLine();
+
+                while (!int.TryParse(employeeSalaryConfidenceResponse, out employeeSalaryResponseNumber))
                 {
-                    Console.WriteLine(warningMessage.emptyValueMessage);
-                }
-                if (!string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
-                {
-                    if (employeeSalaryConfidenceResponse.GetType() == typeof(string))
+                    if (string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
                     {
-                        Console.WriteLine(warningMessage.wrongLetterMessage);
+                        Console.WriteLine(warningMessage.emptyValueMessage);
+                    }
+                    if (!string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
+                    {
+                        if (employeeSalaryConfidenceResponse.GetType() == typeof(string))
+                        {
+                            Console.WriteLine(warningMessage.wrongLetterMessage);
+                        }
+                    }
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    Console.WriteLine("Bəli(1) / Xeyr(2)");
+                    Console.Write(warningMessage.enterMessage);
+                    employeeSalaryConfidenceResponse = Console.ReadLine();
+                    
+                }
+                isSalaryResponseContiune = true;
+                if (employeeSalaryResponseNumber == 2)
+                {
+                    Console.Write(warningMessage.enterSalaryMessage);
+                    while (!int.TryParse(employeeSalary, out salary))
+                    {
+                        Console.WriteLine(warningMessage.wrongSalaryMessage);
+                        Console.Write(warningMessage.enterSalaryMessage);
+                        employeeSalary = Console.ReadLine();
+                        isSalaryResponseContiune = true;
                     }
                 }
-                Console.WriteLine(warningMessage.wrongValueMessage);
-                Console.WriteLine("Bəli(1) / Xeyr(2)");
-                employeeSalaryConfidenceResponse = Console.ReadLine();
-            }
-            if (employeeSalaryResponseNumber!=1)
-            {
-                Console.Write(warningMessage.enterSalaryMessage);
-                while (!int.TryParse(employeeSalary, out salary))
+                else if (employeeSalaryResponseNumber!=1 && employeeSalaryResponseNumber!=2)
                 {
-                    Console.WriteLine(warningMessage.wrongSalaryMessage);
-                    Console.Write(warningMessage.enterSalaryMessage);
-                    employeeSalary = Console.ReadLine();
+                   
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    Console.WriteLine("Bəli(1) / Xeyr(2)");
+                    isSalaryResponseContiune = false;
                 }
-            }
+            } while (!isSalaryResponseContiune);
+          
             Console.WriteLine();
             Console.WriteLine(warningMessage.enterMartialStatusMessage);
-            Console.WriteLine("Evli (1) / Subay (2) / Dul (3)");
-            Console.Write(warningMessage.enterMessage);
+           
             int maritalStatusResponse;
-            string martialStatus = Console.ReadLine();
-            while (!int.TryParse(martialStatus, out maritalStatusResponse))
+            string martialStatus;
+            bool isMartialContiune = false;
+            do
             {
-                Console.WriteLine(warningMessage.wrongMaritalStatusMessage);
+                Console.WriteLine("Evli (1) / Subay (2) / Dul (3)");
+                Console.Write(warningMessage.enterMessage);
                 martialStatus = Console.ReadLine();
-            }
+                while (!int.TryParse(martialStatus, out maritalStatusResponse))
+                {
+                    if (string.IsNullOrWhiteSpace(martialStatus))
+                    {
+                        Console.WriteLine(warningMessage.emptyValueMessage);
+                    }
+                    if (!string.IsNullOrWhiteSpace(martialStatus))
+                    {
+                        if (martialStatus.GetType() == typeof(string))
+                        {
+                            Console.WriteLine(warningMessage.wrongLetterMessage);
+                        }
+                    }
+                    Console.WriteLine(warningMessage.wrongMaritalStatusMessage);
+                    Console.WriteLine(warningMessage.enterMessage);
+                    martialStatus = Console.ReadLine();
+                }
+                isMartialContiune = true;
+                if (maritalStatusResponse!=1&&maritalStatusResponse!=2&&maritalStatusResponse!=2)
+                {
+                    isMartialContiune = false;
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    
+                }
+            } while (!isMartialContiune);
             Console.WriteLine();
             Console.WriteLine(warningMessage.confirmationMartialStatusMessage);
-            Console.Write(warningMessage.enterMessage);
-            string martialStatusConfidenceResponse = Console.ReadLine();
+           
+           
             int martialStatusConfidenceResponseNumber;
-            while (!int.TryParse(martialStatusConfidenceResponse,out martialStatusConfidenceResponseNumber))
+            bool isConfidenceMartialContiune = false;
+            do
             {
-                Console.WriteLine(warningMessage.wrongValueMessage);
-                martialStatusConfidenceResponse = Console.ReadLine();
-            }
+                Console.Write(warningMessage.enterMessage);
+                string martialStatusConfidenceResponse = Console.ReadLine();
+                while (!int.TryParse(martialStatusConfidenceResponse, out martialStatusConfidenceResponseNumber))
+                {
+                    if (string.IsNullOrWhiteSpace(martialStatusConfidenceResponse))
+                    {
+                        Console.WriteLine(warningMessage.emptyValueMessage);
+                    }
+                    if (!string.IsNullOrWhiteSpace(martialStatusConfidenceResponse))
+                    {
+                        if (martialStatusConfidenceResponse.GetType() == typeof(string))
+                        {
+                            Console.WriteLine(warningMessage.wrongLetterMessage);
+                        }
+                    }
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    Console.Write(warningMessage.enterMessage);
+                    martialStatusConfidenceResponse = Console.ReadLine();
+                }
+                isConfidenceMartialContiune = true;
+                if (martialStatusConfidenceResponseNumber!=1&&maritalStatusResponse!=2)
+                {
+                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    isConfidenceMartialContiune = false;
+                }
+            } while (!isConfidenceMartialContiune);
+           
             switch (martialStatusConfidenceResponseNumber)
             {
                 case 1:
@@ -113,23 +180,59 @@ namespace emek_haqqi_komekcisi_app
                 }
                 Console.WriteLine(warningMessage.confirmationDoHaveChildMessage);
                 int childResponseConfiderinceNumber;
-                Console.Write(warningMessage.enterMessage);
-                string haveChildResponse = Console.ReadLine();
-                while (!int.TryParse(haveChildResponse,out childResponseConfiderinceNumber))
+                string haveChildResponse;
+                bool haveChildContiune = false;
+                do
                 {
-                    Console.WriteLine(warningMessage.wrongValueMessage);
+                    Console.Write(warningMessage.enterMessage);
                     haveChildResponse = Console.ReadLine();
-                }
+                    while (!int.TryParse(haveChildResponse, out childResponseConfiderinceNumber))
+                    {
+                        if (string.IsNullOrWhiteSpace(haveChildResponse))
+                        {
+                            Console.WriteLine(warningMessage.emptyValueMessage);
+                        }
+                        if (!string.IsNullOrWhiteSpace(haveChildResponse))
+                        {
+                            if (haveChildResponse.GetType() == typeof(string))
+                            {
+                                Console.WriteLine(warningMessage.wrongLetterMessage);
+                            }
+                        }
+                        Console.WriteLine(warningMessage.wrongValueMessage);
+                        Console.Write(warningMessage.enterMessage);
+                        haveChildResponse = Console.ReadLine();
+                    }
+                    haveChildContiune = true;
+                    if (childResponseConfiderinceNumber!=1&&childResponseConfiderinceNumber!= 2)
+                    {
+                        Console.WriteLine(warningMessage.wrongValueMessage);
+                        haveChildContiune = false;
+                    }
+                } while (!haveChildContiune);
+               
                 if (childResponseConfiderinceNumber == 1)
                 {
                     Console.WriteLine();
                     Console.Write(warningMessage.enterChildCountMessage);
                     
-                    string childCountresponse = Console.ReadLine();
-                    while (!int.TryParse(childCountresponse,out childCount))
+                    string childCountResponse = Console.ReadLine();
+                    while (!int.TryParse(childCountResponse,out childCount))
                     {
+                        if (string.IsNullOrWhiteSpace(childCountResponse))
+                        {
+                            Console.WriteLine(warningMessage.emptyValueMessage);
+                        }
+                        if (!string.IsNullOrWhiteSpace(childCountResponse))
+                        {
+                            if (childCountResponse.GetType() == typeof(string))
+                            {
+                                Console.WriteLine(warningMessage.wrongLetterMessage);
+                            }
+                        }
                         Console.WriteLine(warningMessage.wrongChildCountMessage);
-                        childCountresponse = Console.ReadLine();
+                        Console.Write(warningMessage.enterMessage);
+                        childCountResponse = Console.ReadLine();
                     }
                     if (childCount == 1)
                     { 
@@ -160,18 +263,30 @@ namespace emek_haqqi_komekcisi_app
             Console.WriteLine();
             Console.WriteLine(warningMessage.disabilityMessage);
             int disabilityStatusNumber;
-            
             double taxInterest = 0;
             double fixSalary = 0;
             float interest = 0;
             bool isContunie = true;
             do
             {
-                Console.WriteLine(warningMessage.enterMessage);
+                Console.Write(warningMessage.enterMessage);
                 string disabilityStatus = Console.ReadLine();
                 while (!int.TryParse(disabilityStatus, out disabilityStatusNumber))
                 {
+
+                    if (string.IsNullOrWhiteSpace(disabilityStatus))
+                    {
+                        Console.WriteLine(warningMessage.emptyValueMessage);
+                    }
+                    if (!string.IsNullOrWhiteSpace(disabilityStatus))
+                    {
+                        if (disabilityStatus.GetType() == typeof(string))
+                        {
+                            Console.WriteLine(warningMessage.wrongLetterMessage);
+                        }
+                    }
                     Console.WriteLine(warningMessage.wrongValueMessage);
+                    Console.Write(warningMessage.enterMessage);
                     disabilityStatus = Console.ReadLine();
                 }
 
