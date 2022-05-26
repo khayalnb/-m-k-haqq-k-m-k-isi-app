@@ -356,8 +356,11 @@ namespace emek_haqqi_komekcisi_app
             var table = new ConsoleTable("Ailə müavinatı", "Uşaq pulu", "Gəlir vergisi dərəcəsi", "Gəlir vergisi məbləği", "Ümumi əmək haqqı", "Xalis əmək haqqı");
             table.AddRow(marriedPayment, payment, interest + " %", taxInterest, salary, fixSalary);
             table.Write();
-            Console.WriteLine("Sizin əmək haqqınız bu pul vahidləri ilə ödəniləcək :");
+            Console.WriteLine("**Sizin əmək haqqınız bu pul vahidləri ilə ödəniləcək**");
             paymentTerminal(fixSalary);
+           
+           
+           
         }
         public static int TrueAndFalseResponse(string value)
         {
@@ -381,7 +384,7 @@ namespace emek_haqqi_komekcisi_app
                 {
                     var moneyTable = new ConsoleTable(monetaryUnits[i].ToString()+" AZN ");
                     moneyTable.AddRow(moneyUnitCount);
-                    Console.WriteLine(moneyTable);
+                    moneyTable.Write();
                     //Console.WriteLine("{0} eded {1} manat çıxarıldı", moneyUnitCount, monetaryUnits[i]);
                 }
                 salary = salary - (moneyUnitCount * monetaryUnits[i]);
