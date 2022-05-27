@@ -27,7 +27,6 @@ namespace emek_haqqi_komekcisi_app
                         Console.WriteLine(warningMessage.wrongLetterMessage);
                     }
                 }
-               
                 Console.WriteLine(warningMessage.wrongSalaryMessage);
                 Console.Write(warningMessage.enterSalaryMessage);
                 employeeSalary = Console.ReadLine();
@@ -39,7 +38,6 @@ namespace emek_haqqi_komekcisi_app
             {
                 Console.Write(warningMessage.enterMessage);
                 string employeeSalaryConfidenceResponse = Console.ReadLine();
-
                 while (!int.TryParse(employeeSalaryConfidenceResponse, out employeeSalaryResponseNumber))
                 {
                     if (string.IsNullOrWhiteSpace(employeeSalaryConfidenceResponse))
@@ -57,7 +55,6 @@ namespace emek_haqqi_komekcisi_app
                     Console.WriteLine("Bəli(1) / Xeyr(2)");
                     Console.Write(warningMessage.enterMessage);
                     employeeSalaryConfidenceResponse = Console.ReadLine();
-                    
                 }
                 isSalaryResponseContiune = true;
                 if (employeeSalaryResponseNumber == 2)
@@ -82,7 +79,6 @@ namespace emek_haqqi_komekcisi_app
           
             Console.WriteLine();
             Console.WriteLine(warningMessage.enterMartialStatusMessage);
-           
             int maritalStatusResponse;
             string martialStatus;
             bool isMartialContiune = false;
@@ -118,8 +114,6 @@ namespace emek_haqqi_komekcisi_app
             } while (!isMartialContiune);
             Console.WriteLine();
             Console.WriteLine(warningMessage.confirmationMartialStatusMessage);
-           
-           
             int martialStatusConfidenceResponseNumber;
             bool isConfidenceMartialContiune = false;
             do
@@ -215,7 +209,6 @@ namespace emek_haqqi_komekcisi_app
                 {
                     Console.WriteLine();
                     Console.Write(warningMessage.enterChildCountMessage);
-                    
                     string childCountResponse = Console.ReadLine();
                     while (!int.TryParse(childCountResponse,out childCount))
                     {
@@ -273,7 +266,6 @@ namespace emek_haqqi_komekcisi_app
                 string disabilityStatus = Console.ReadLine();
                 while (!int.TryParse(disabilityStatus, out disabilityStatusNumber))
                 {
-
                     if (string.IsNullOrWhiteSpace(disabilityStatus))
                     {
                         Console.WriteLine(warningMessage.emptyValueMessage);
@@ -289,7 +281,6 @@ namespace emek_haqqi_komekcisi_app
                     Console.Write(warningMessage.enterMessage);
                     disabilityStatus = Console.ReadLine();
                 }
-
                 if (disabilityStatusNumber == 1)
                 {
                     isContunie = true;
@@ -299,25 +290,26 @@ namespace emek_haqqi_komekcisi_app
                     {
                         interest = 15 / divisor;
                         taxInterest = (salary / a) * interest;
-                        fixSalary = Math.Floor(salary - taxInterest);
+                        fixSalary=Math.Round(salary - taxInterest,2);
                     }
                     if (salary > 1000 && salary <= 2000)
                     {
                         interest = 20 / divisor;
-                        taxInterest = (salary / 100) * interest;
-                        fixSalary = Math.Floor(salary - taxInterest);
+                        taxInterest = (salary / a) * interest;
+                        fixSalary = Math.Round(salary - taxInterest, 2);
                     }
                     if (salary > 2000 && salary <= 3000)
                     {
                         interest = 25 / divisor;
-                        taxInterest = (salary / 100) * interest;
-                        fixSalary = Math.Floor(salary - taxInterest);
+                        taxInterest = (salary / a) * interest;
+                        fixSalary=Math.Round(salary - taxInterest,2);
                     }
                     if (salary > 3000)
                     {
                         interest = 30 / divisor;
-                        taxInterest = ((salary / 100) * interest);
-                        fixSalary = Math.Round(salary - taxInterest);
+                        taxInterest = ((salary / a) * interest);
+                        fixSalary=Math.Round(salary - taxInterest,2);
+
                     }
                 }
                 else if (disabilityStatusNumber == 2)
@@ -325,23 +317,26 @@ namespace emek_haqqi_komekcisi_app
                     isContunie = true;
                     if (salary <= 1000)
                     {
-
-                        taxInterest = (salary / 100) * 15;
+                        interest = 15;
+                        taxInterest = (salary / 100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 1000 && salary <= 2000)
                     {
-                        taxInterest = (salary / 100) * 20;
+                        interest = 20;
+                        taxInterest = (salary / 100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 2000 && salary <= 3000)
                     {
-                        taxInterest = (salary / 100) * 25;
+                        interest = 25;
+                        taxInterest = (salary / 100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 3000)
                     {
-                        taxInterest = (salary / 100) * 30;
+                        interest = 30;
+                        taxInterest = (salary / 100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                 }
@@ -351,16 +346,12 @@ namespace emek_haqqi_komekcisi_app
                     isContunie = false;
                 }
             } while (!isContunie);
-           
 
             var table = new ConsoleTable("Ailə müavinatı", "Uşaq pulu", "Gəlir vergisi dərəcəsi", "Gəlir vergisi məbləği", "Ümumi əmək haqqı", "Xalis əmək haqqı");
-            table.AddRow(marriedPayment, payment, interest + " %", taxInterest, salary, fixSalary);
+            table.AddRow(marriedPayment, payment,interest+ " %",Math.Round(taxInterest,2), salary, fixSalary);
             table.Write();
             Console.WriteLine("**Sizin əmək haqqınız bu pul vahidləri ilə ödəniləcək**");
             paymentTerminal(fixSalary);
-           
-           
-           
         }
         public static int TrueAndFalseResponse(string value)
         {
