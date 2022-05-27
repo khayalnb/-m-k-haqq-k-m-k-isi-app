@@ -285,29 +285,28 @@ namespace emek_haqqi_komekcisi_app
                 {
                     isContunie = true;
                     const float divisor = 2f;
-                    float a = 100;
                     if (salary <= 1000)
                     {
                         interest = 15 / divisor;
-                        taxInterest = (salary / a) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary=Math.Round(salary - taxInterest,2);
                     }
                     if (salary > 1000 && salary <= 2000)
                     {
                         interest = 20 / divisor;
-                        taxInterest = (salary / a) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary = Math.Round(salary - taxInterest, 2);
                     }
                     if (salary > 2000 && salary <= 3000)
                     {
                         interest = 25 / divisor;
-                        taxInterest = (salary / a) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary=Math.Round(salary - taxInterest,2);
                     }
                     if (salary > 3000)
                     {
                         interest = 30 / divisor;
-                        taxInterest = ((salary / a) * interest);
+                        taxInterest = ((salary / (float)100) * interest);
                         fixSalary=Math.Round(salary - taxInterest,2);
 
                     }
