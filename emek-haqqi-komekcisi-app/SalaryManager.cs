@@ -18,7 +18,7 @@ namespace emek_haqqi_komekcisi_app
             Console.WriteLine();
             Console.Write(warningMessage.enterSalaryMessage);
             int salary;
-            string employeeSalary = Console.ReadLine();
+            string employeeSalary = Console.ReadLine();  
             while (!int.TryParse(employeeSalary, out salary))
             {
                 if (string.IsNullOrWhiteSpace(employeeSalary))
@@ -241,13 +241,13 @@ namespace emek_haqqi_komekcisi_app
                     if (childCount == 2)
                     {
                         payment += 30 + 25;
-                        salary = 30 + 25;
+                        salary += 30 + 25;
                         warningMessage.childPaymentMessage(payment);
                     }
                     if (childCount == 3)
                     {
                         payment = 30 + 25 + 20;
-                        salary = 30 + 25 + 20;
+                        salary += 30 + 25 + 20;
                         warningMessage.childPaymentMessage(payment);
                     }
                     if (childCount > 3)
