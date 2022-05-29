@@ -110,7 +110,7 @@ namespace emek_haqqi_komekcisi_app
                     martialStatus = Console.ReadLine();
                 }
                 isMartialContiune = true;
-                if (maritalStatusResponse != 1 && maritalStatusResponse != 2 && maritalStatusResponse != 2)
+                if (maritalStatusResponse != 1 && maritalStatusResponse != 2 && maritalStatusResponse != 3)
                 {
                     isMartialContiune = false;
                     Console.WriteLine(warningMessage.wrongValueMessage);
