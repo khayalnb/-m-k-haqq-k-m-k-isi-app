@@ -170,11 +170,12 @@ namespace emek_haqqi_komekcisi_app
             Console.WriteLine();
             int payment = 0;
             int childCount = 0;
-            int marriedPayment = 50;
+            int marriedPayment = 0;
             if (maritalStatusResponse == 1 || maritalStatusResponse == 3)
             {
                 if (maritalStatusResponse == 1)
                 {
+                    marriedPayment = 50;
                     salary += marriedPayment;
                 }
                 Console.WriteLine(warningMessage.confirmationDoHaveChildMessage);
