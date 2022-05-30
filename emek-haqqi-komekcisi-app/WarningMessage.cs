@@ -33,8 +33,6 @@ namespace emek_haqqi_komekcisi_app
         public string wrongChildCountMessage = "Zəhmət olmasa uşaq sayını düzgün daxil edin !";
 
         public string disabilityMessage = "Əlilik statusunuz var ? Bəli (1) / Xeyr (2)";
-
-
         public void childPaymentMessage(int payment)
         {
             Console.WriteLine($"Uşaq sayına görə {payment} AZN ödəniş edildi");

@@ -21,6 +21,15 @@ namespace emek_haqqi_komekcisi_app
             string employeeSalary = Console.ReadLine();  
             while (!int.TryParse(employeeSalary, out salary))
             {
+                try
+                {
+                    if (Convert.ToInt64(employeeSalary) > int.MaxValue) ;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Emek haqqininin Limitini  kecdiz");
+                }
+               
                 if (string.IsNullOrWhiteSpace(employeeSalary))
                 {
                     Console.WriteLine(warningMessage.emptyValueMessage);
@@ -75,7 +84,6 @@ namespace emek_haqqi_komekcisi_app
                 }
                 else if (employeeSalaryResponseNumber != 1 && employeeSalaryResponseNumber != 2)
                 {
-
                     Console.WriteLine(warningMessage.wrongValueMessage);
                     Console.WriteLine("Bəli(1) / Xeyr(2)");
                     isSalaryResponseContiune = false;
@@ -114,7 +122,6 @@ namespace emek_haqqi_komekcisi_app
                 {
                     isMartialContiune = false;
                     Console.WriteLine(warningMessage.wrongValueMessage);
-
                 }
             } while (!isMartialContiune);
             Console.WriteLine();
@@ -149,7 +156,6 @@ namespace emek_haqqi_komekcisi_app
                     isConfidenceMartialContiune = false;
                 }
             } while (!isConfidenceMartialContiune);
-
             switch (martialStatusConfidenceResponseNumber)
             {
                 case 1:
@@ -314,7 +320,6 @@ namespace emek_haqqi_komekcisi_app
                         interest = 30 / divisor;
                         taxInterest = ((salary / (float)100) * interest);
                         fixSalary = Math.Round(salary - taxInterest, 2);
-
                     }
                 }
                 else if (disabilityStatusNumber == 2)
@@ -355,6 +360,7 @@ namespace emek_haqqi_komekcisi_app
             var table = new ConsoleTable("Ailə müavinatı", "Uşaq pulu", "Gəlir vergisi dərəcəsi", "Gəlir vergisi məbləği", "Ümumi əmək haqqı", "Xalis əmək haqqı");
             table.AddRow(marriedPayment, payment, interest + " %", Math.Round(taxInterest, 2), salary, fixSalary);
             table.Write();
+            Console.WriteLine();
             Console.WriteLine("**Sizin əmək haqqınız bu pul vahidləri ilə ödəniləcək**");
             paymentTerminal(fixSalary);
         }
@@ -370,7 +376,6 @@ namespace emek_haqqi_komekcisi_app
                     var moneyTable = new ConsoleTable(monetaryUnits[i].ToString() + " AZN ");
                     moneyTable.AddRow(moneyUnitCount);
                     moneyTable.Write();
-                    //Console.WriteLine("{0} eded {1} manat çıxarıldı", moneyUnitCount, monetaryUnits[i]);
                 }
                 salary = salary - (moneyUnitCount * monetaryUnits[i]);
             }

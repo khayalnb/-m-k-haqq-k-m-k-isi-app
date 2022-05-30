@@ -10,6 +10,5 @@ namespace emek_haqqi_komekcisi_app
             SalaryManager salaryManager = new SalaryManager();
             salaryManager.Manager();
         }
-      
     }
 }
