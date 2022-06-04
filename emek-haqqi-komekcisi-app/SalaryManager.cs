@@ -29,7 +29,6 @@ namespace emek_haqqi_komekcisi_app
                 {
                     Console.WriteLine("Emek haqqininin Limitini  kecdiz");
                 }
-               
                 if (string.IsNullOrWhiteSpace(employeeSalary))
                 {
                     Console.WriteLine(warningMessage.emptyValueMessage);
@@ -216,7 +215,6 @@ namespace emek_haqqi_komekcisi_app
                         haveChildContiune = false;
                     }
                 } while (!haveChildContiune);
-
                 if (childResponseConfiderinceNumber == 1)
                 {
                     Console.WriteLine();
@@ -328,25 +326,25 @@ namespace emek_haqqi_komekcisi_app
                     if (salary <= 1000)
                     {
                         interest = 15;
-                        taxInterest = (salary / 100) * interest;
+                        taxInterest = (salary /(float)100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 1000 && salary <= 2000)
                     {
                         interest = 20;
-                        taxInterest = (salary / 100) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 2000 && salary <= 3000)
                     {
                         interest = 25;
-                        taxInterest = (salary / 100) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                     if (salary > 3000)
                     {
                         interest = 30;
-                        taxInterest = (salary / 100) * interest;
+                        taxInterest = (salary / (float)100) * interest;
                         fixSalary = salary - taxInterest;
                     }
                 }
